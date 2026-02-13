@@ -17,7 +17,7 @@ package huffman
 import (
 	"fmt"
 
-	"github.com/MatusOllah/resona/codec/mp3/internal/bits"
+	"github.com/SladkyCitron/resona/codec/mp3/internal/bits"
 )
 
 var huffmanTable = []uint16{

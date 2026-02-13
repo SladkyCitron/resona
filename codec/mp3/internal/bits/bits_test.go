@@ -17,7 +17,7 @@ package bits_test
 import (
 	"testing"
 
-	. "github.com/MatusOllah/resona/codec/mp3/internal/bits"
+	. "github.com/SladkyCitron/resona/codec/mp3/internal/bits"
 )
 
 func TestBits(t *testing.T) {

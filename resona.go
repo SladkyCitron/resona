@@ -38,7 +38,7 @@ import (
 	"runtime/debug"
 )
 
-const root string = "github.com/MatusOllah/resona"
+const root string = "github.com/SladkyCitron/resona"
 
 // Version returns the version of Resona and its checksum. The returned
 // values are only valid in binaries built with module support.

@@ -17,11 +17,11 @@ package maindata
 import (
 	"fmt"
 
-	"github.com/MatusOllah/resona/codec/mp3/internal/bits"
-	"github.com/MatusOllah/resona/codec/mp3/internal/consts"
-	"github.com/MatusOllah/resona/codec/mp3/internal/frameheader"
-	"github.com/MatusOllah/resona/codec/mp3/internal/huffman"
-	"github.com/MatusOllah/resona/codec/mp3/internal/sideinfo"
+	"github.com/SladkyCitron/resona/codec/mp3/internal/bits"
+	"github.com/SladkyCitron/resona/codec/mp3/internal/consts"
+	"github.com/SladkyCitron/resona/codec/mp3/internal/frameheader"
+	"github.com/SladkyCitron/resona/codec/mp3/internal/huffman"
+	"github.com/SladkyCitron/resona/codec/mp3/internal/sideinfo"
 )
 
 func readHuffman(m *bits.Bits, header frameheader.FrameHeader, sideInfo *sideinfo.SideInfo, mainData *MainData, part_2_start, gr, ch int) error {

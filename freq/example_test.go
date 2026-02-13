@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/MatusOllah/resona/freq"
+	"github.com/SladkyCitron/resona/freq"
 )
 
 func ExampleParse() {

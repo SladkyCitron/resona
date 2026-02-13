@@ -4,12 +4,12 @@ import (
 	"errors"
 	"io"
 
-	"github.com/MatusOllah/resona/afmt"
-	"github.com/MatusOllah/resona/codec"
-	"github.com/MatusOllah/resona/codec/mp3/internal/consts"
-	"github.com/MatusOllah/resona/codec/mp3/internal/frame"
-	"github.com/MatusOllah/resona/codec/mp3/internal/frameheader"
-	"github.com/MatusOllah/resona/freq"
+	"github.com/SladkyCitron/resona/afmt"
+	"github.com/SladkyCitron/resona/codec"
+	"github.com/SladkyCitron/resona/codec/mp3/internal/consts"
+	"github.com/SladkyCitron/resona/codec/mp3/internal/frame"
+	"github.com/SladkyCitron/resona/codec/mp3/internal/frameheader"
+	"github.com/SladkyCitron/resona/freq"
 )
 
 // Decoder represents the decoder for the MP3 file format.

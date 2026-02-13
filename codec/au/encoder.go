@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/MatusOllah/resona/afmt"
-	"github.com/MatusOllah/resona/aio"
-	"github.com/MatusOllah/resona/encoding/g711"
-	"github.com/MatusOllah/resona/encoding/pcm"
+	"github.com/SladkyCitron/resona/afmt"
+	"github.com/SladkyCitron/resona/aio"
+	"github.com/SladkyCitron/resona/encoding/g711"
+	"github.com/SladkyCitron/resona/encoding/pcm"
 )
 
 // Encoder represents the encoder for the AU file format.

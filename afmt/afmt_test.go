@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MatusOllah/resona/afmt"
-	"github.com/MatusOllah/resona/freq"
+	"github.com/SladkyCitron/resona/afmt"
+	"github.com/SladkyCitron/resona/freq"
 )
 
 func TestNumFramesToDuration(t *testing.T) {

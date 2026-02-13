@@ -3,8 +3,8 @@ package audio_test
 import (
 	"testing"
 
-	"github.com/MatusOllah/resona/audio"
-	"github.com/MatusOllah/resona/internal/testutil"
+	"github.com/SladkyCitron/resona/audio"
+	"github.com/SladkyCitron/resona/internal/testutil"
 )
 
 func TestUpmixer(t *testing.T) {

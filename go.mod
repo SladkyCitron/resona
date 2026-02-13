@@ -1,4 +1,4 @@
-module github.com/MatusOllah/resona
+module github.com/SladkyCitron/resona
 
 go 1.24
 

@@ -6,8 +6,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/MatusOllah/resona/dsp/window"
-	"github.com/MatusOllah/resona/internal/testutil"
+	"github.com/SladkyCitron/resona/dsp/window"
+	"github.com/SladkyCitron/resona/internal/testutil"
 )
 
 func TestWindows(t *testing.T) {

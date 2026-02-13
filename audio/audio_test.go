@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MatusOllah/resona/audio"
-	"github.com/MatusOllah/resona/freq"
+	"github.com/SladkyCitron/resona/audio"
+	"github.com/SladkyCitron/resona/freq"
 )
 
 func TestInterleave(t *testing.T) {

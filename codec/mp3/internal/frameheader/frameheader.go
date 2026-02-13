@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/MatusOllah/resona/codec/mp3/internal/consts"
+	"github.com/SladkyCitron/resona/codec/mp3/internal/consts"
 )
 
 // FrameHeader is a MPEG1 Layer 1-3 frame header

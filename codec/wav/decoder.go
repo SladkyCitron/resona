@@ -7,15 +7,15 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/MatusOllah/resona/afmt"
-	"github.com/MatusOllah/resona/aio"
-	"github.com/MatusOllah/resona/codec"
-	"github.com/MatusOllah/resona/codec/mp3"
-	"github.com/MatusOllah/resona/codec/wav/internal/riff"
-	"github.com/MatusOllah/resona/encoding/dfpwm"
-	"github.com/MatusOllah/resona/encoding/g711"
-	"github.com/MatusOllah/resona/encoding/pcm"
-	"github.com/MatusOllah/resona/freq"
+	"github.com/SladkyCitron/resona/afmt"
+	"github.com/SladkyCitron/resona/aio"
+	"github.com/SladkyCitron/resona/codec"
+	"github.com/SladkyCitron/resona/codec/mp3"
+	"github.com/SladkyCitron/resona/codec/wav/internal/riff"
+	"github.com/SladkyCitron/resona/encoding/dfpwm"
+	"github.com/SladkyCitron/resona/encoding/g711"
+	"github.com/SladkyCitron/resona/encoding/pcm"
+	"github.com/SladkyCitron/resona/freq"
 )
 
 // Chunk IDs for the WAVE file format.

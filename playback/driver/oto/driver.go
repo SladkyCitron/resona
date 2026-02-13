@@ -10,10 +10,10 @@ import (
 	"encoding/binary"
 	"math"
 
-	"github.com/MatusOllah/resona/afmt"
-	"github.com/MatusOllah/resona/aio"
-	"github.com/MatusOllah/resona/dsp"
-	"github.com/MatusOllah/resona/playback"
+	"github.com/SladkyCitron/resona/afmt"
+	"github.com/SladkyCitron/resona/aio"
+	"github.com/SladkyCitron/resona/dsp"
+	"github.com/SladkyCitron/resona/playback"
 	"github.com/ebitengine/oto/v3"
 )
 

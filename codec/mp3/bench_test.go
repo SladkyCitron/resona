@@ -20,8 +20,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/MatusOllah/resona/aio"
-	. "github.com/MatusOllah/resona/codec/mp3"
+	"github.com/SladkyCitron/resona/aio"
+	. "github.com/SladkyCitron/resona/codec/mp3"
 )
 
 func BenchmarkDecode(b *testing.B) {

@@ -7,9 +7,9 @@ import (
 	"io"
 	"math"
 
-	"github.com/MatusOllah/resona/afmt"
-	"github.com/MatusOllah/resona/codec"
-	"github.com/MatusOllah/resona/freq"
+	"github.com/SladkyCitron/resona/afmt"
+	"github.com/SladkyCitron/resona/codec"
+	"github.com/SladkyCitron/resona/freq"
 )
 
 // Decoder represents the decoder for the QOA file format.

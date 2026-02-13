@@ -3,7 +3,7 @@ package audio
 import (
 	"io"
 
-	"github.com/MatusOllah/resona/aio"
+	"github.com/SladkyCitron/resona/aio"
 )
 
 // Mixer allows for dynamic mixing of arbitrary number of SampleReaders.

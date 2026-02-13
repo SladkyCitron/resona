@@ -18,7 +18,7 @@ import (
 	"bytes"
 	"testing"
 
-	. "github.com/MatusOllah/resona/codec/mp3"
+	. "github.com/SladkyCitron/resona/codec/mp3"
 )
 
 func TestFuzzing(t *testing.T) {

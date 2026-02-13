@@ -4,7 +4,7 @@ package audio
 import (
 	"sync/atomic"
 
-	"github.com/MatusOllah/resona/aio"
+	"github.com/SladkyCitron/resona/aio"
 )
 
 // Parameter represents a float32 control-rate parameter i.e. a "patch cable".

@@ -3,8 +3,8 @@ package fourier_test
 import (
 	"testing"
 
-	"github.com/MatusOllah/resona/dsp/fourier"
-	"github.com/MatusOllah/resona/internal/testutil"
+	"github.com/SladkyCitron/resona/dsp/fourier"
+	"github.com/SladkyCitron/resona/internal/testutil"
 )
 
 func TestRFFTRoundtrip(t *testing.T) {

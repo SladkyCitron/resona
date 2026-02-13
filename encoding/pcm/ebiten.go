@@ -6,8 +6,8 @@ import (
 	"io"
 	"math"
 
-	"github.com/MatusOllah/resona/aio"
-	"github.com/MatusOllah/resona/dsp"
+	"github.com/SladkyCitron/resona/aio"
+	"github.com/SladkyCitron/resona/dsp"
 )
 
 type ebitenS16 struct {

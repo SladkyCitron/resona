@@ -5,10 +5,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/MatusOllah/resona/afmt"
-	"github.com/MatusOllah/resona/encoding/dfpwm"
-	"github.com/MatusOllah/resona/encoding/pcm"
-	"github.com/MatusOllah/resona/internal/testutil"
+	"github.com/SladkyCitron/resona/afmt"
+	"github.com/SladkyCitron/resona/encoding/dfpwm"
+	"github.com/SladkyCitron/resona/encoding/pcm"
+	"github.com/SladkyCitron/resona/internal/testutil"
 )
 
 func TestDecode(t *testing.T) {

@@ -4,7 +4,7 @@ import (
 	"encoding/binary"
 	"fmt"
 
-	"github.com/MatusOllah/resona/afmt"
+	"github.com/SladkyCitron/resona/afmt"
 )
 
 func ExampleSampleFormat_String() {

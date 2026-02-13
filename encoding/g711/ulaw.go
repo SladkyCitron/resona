@@ -3,7 +3,7 @@ package g711
 import (
 	"io"
 
-	"github.com/MatusOllah/resona/aio"
+	"github.com/SladkyCitron/resona/aio"
 )
 
 // EncodeUlaw encodes a slice of float32 samples into μ-law.

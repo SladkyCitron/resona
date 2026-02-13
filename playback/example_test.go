@@ -3,10 +3,10 @@ package playback_test
 import (
 	"os"
 
-	"github.com/MatusOllah/resona/codec"
-	_ "github.com/MatusOllah/resona/codec/wav" // Enable WAV decoder
-	"github.com/MatusOllah/resona/playback"
-	_ "github.com/MatusOllah/resona/playback/driver/oto" // Enable Oto driver
+	"github.com/SladkyCitron/resona/codec"
+	_ "github.com/SladkyCitron/resona/codec/wav" // Enable WAV decoder
+	"github.com/SladkyCitron/resona/playback"
+	_ "github.com/SladkyCitron/resona/playback/driver/oto" // Enable Oto driver
 )
 
 func Example() {

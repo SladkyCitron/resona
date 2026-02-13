@@ -12,7 +12,7 @@ import (
 	"errors"
 	"io"
 
-	"github.com/MatusOllah/resona/aio"
+	"github.com/SladkyCitron/resona/aio"
 )
 
 const defaultBufSize = 1024 // recommended for audio, I think

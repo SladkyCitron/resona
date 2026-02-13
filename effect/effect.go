@@ -4,7 +4,7 @@ package effect
 import (
 	"io"
 
-	"github.com/MatusOllah/resona/aio"
+	"github.com/SladkyCitron/resona/aio"
 )
 
 // Effect represents an audio effect that can process audio samples.

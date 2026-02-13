@@ -6,12 +6,12 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/MatusOllah/resona/afmt"
-	"github.com/MatusOllah/resona/aio"
-	"github.com/MatusOllah/resona/codec"
-	"github.com/MatusOllah/resona/encoding/g711"
-	"github.com/MatusOllah/resona/encoding/pcm"
-	"github.com/MatusOllah/resona/freq"
+	"github.com/SladkyCitron/resona/afmt"
+	"github.com/SladkyCitron/resona/aio"
+	"github.com/SladkyCitron/resona/codec"
+	"github.com/SladkyCitron/resona/encoding/g711"
+	"github.com/SladkyCitron/resona/encoding/pcm"
+	"github.com/SladkyCitron/resona/freq"
 )
 
 // Decoder represents the decoder for the AU file format.

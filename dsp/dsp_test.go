@@ -3,8 +3,8 @@ package dsp_test
 import (
 	"testing"
 
-	"github.com/MatusOllah/resona/dsp"
-	"github.com/MatusOllah/resona/internal/testutil"
+	"github.com/SladkyCitron/resona/dsp"
+	"github.com/SladkyCitron/resona/internal/testutil"
 )
 
 func TestClamp(t *testing.T) {

@@ -3,8 +3,8 @@ package g711_test
 import (
 	"testing"
 
-	"github.com/MatusOllah/resona/encoding/g711"
-	"github.com/MatusOllah/resona/internal/testutil"
+	"github.com/SladkyCitron/resona/encoding/g711"
+	"github.com/SladkyCitron/resona/internal/testutil"
 )
 
 func TestUlawRoundTrip(t *testing.T) {

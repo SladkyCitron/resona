@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"io"
 
-	"github.com/MatusOllah/resona/aio"
+	"github.com/SladkyCitron/resona/aio"
 )
 
 // Original C implementation: https://github.com/ChenThread/dfpwm/blob/master/1a/audecmp.c

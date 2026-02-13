@@ -5,7 +5,7 @@
 // Registration is typically automatic as a side effect of initializing that
 // format's package so that, to decode a MP3 file, it suffices to have
 //
-//	import _ "github.com/MatusOllah/resona/codec/mp3"
+//	import _ "github.com/SladkyCitron/resona/codec/mp3"
 //
 // in a program's main package. The _ means to import a package purely for its
 // initialization side effects.
@@ -18,8 +18,8 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/MatusOllah/resona/afmt"
-	"github.com/MatusOllah/resona/aio"
+	"github.com/SladkyCitron/resona/afmt"
+	"github.com/SladkyCitron/resona/aio"
 )
 
 // Decoder represents an abstract audio codec decoder.

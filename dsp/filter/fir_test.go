@@ -3,8 +3,8 @@ package filter_test
 import (
 	"testing"
 
-	"github.com/MatusOllah/resona/dsp/filter"
-	"github.com/MatusOllah/resona/internal/testutil"
+	"github.com/SladkyCitron/resona/dsp/filter"
+	"github.com/SladkyCitron/resona/internal/testutil"
 )
 
 func TestFIRImpulseResponse(t *testing.T) {

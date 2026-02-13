@@ -14,8 +14,8 @@ import (
 	"runtime"
 	"unsafe"
 
-	"github.com/MatusOllah/resona/aio"
-	"github.com/MatusOllah/resona/freq"
+	"github.com/SladkyCitron/resona/aio"
+	"github.com/SladkyCitron/resona/freq"
 )
 
 // Quality constants for resampling. These map directly to SoX quality presets.

@@ -3,8 +3,8 @@ package playback
 import (
 	"sync"
 
-	"github.com/MatusOllah/resona/aio"
-	"github.com/MatusOllah/resona/audio"
+	"github.com/SladkyCitron/resona/aio"
+	"github.com/SladkyCitron/resona/audio"
 )
 
 // Player represents an audio player.

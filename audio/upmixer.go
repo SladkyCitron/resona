@@ -3,7 +3,7 @@ package audio
 import (
 	"io"
 
-	"github.com/MatusOllah/resona/aio"
+	"github.com/SladkyCitron/resona/aio"
 )
 
 // Upmixer duplicates samples and converts mono to multiple-channel audio (e.g. stereo, 5.1 surround).

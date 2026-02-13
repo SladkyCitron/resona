@@ -5,7 +5,7 @@ import (
 	"slices"
 	"sync"
 
-	"github.com/MatusOllah/resona/playback/driver"
+	"github.com/SladkyCitron/resona/playback/driver"
 )
 
 var (

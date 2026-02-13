@@ -3,7 +3,7 @@ package g711
 import (
 	"io"
 
-	"github.com/MatusOllah/resona/aio"
+	"github.com/SladkyCitron/resona/aio"
 )
 
 // EncodeAlaw encodes a slice of float32 samples into A-law.

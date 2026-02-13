@@ -3,10 +3,10 @@ package playback
 import (
 	"fmt"
 
-	"github.com/MatusOllah/resona/abufio"
-	"github.com/MatusOllah/resona/afmt"
-	"github.com/MatusOllah/resona/audio"
-	"github.com/MatusOllah/resona/playback/driver"
+	"github.com/SladkyCitron/resona/abufio"
+	"github.com/SladkyCitron/resona/afmt"
+	"github.com/SladkyCitron/resona/audio"
+	"github.com/SladkyCitron/resona/playback/driver"
 )
 
 // ContextOption represents an option for configuring [Context].

@@ -3,9 +3,9 @@ package effect_test
 import (
 	"fmt"
 
-	"github.com/MatusOllah/resona/aio"
-	"github.com/MatusOllah/resona/audio"
-	"github.com/MatusOllah/resona/effect"
+	"github.com/SladkyCitron/resona/aio"
+	"github.com/SladkyCitron/resona/audio"
+	"github.com/SladkyCitron/resona/effect"
 )
 
 func Example() {

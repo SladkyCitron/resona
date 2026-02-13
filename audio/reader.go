@@ -4,8 +4,8 @@ import (
 	"errors"
 	"io"
 
-	"github.com/MatusOllah/resona/afmt"
-	"github.com/MatusOllah/resona/aio"
+	"github.com/SladkyCitron/resona/afmt"
+	"github.com/SladkyCitron/resona/aio"
 )
 
 // A Reader implements the afmt.Formatter, aio.SampleReader, aio.SampleReaderAt, aio.SampleWriterTo,

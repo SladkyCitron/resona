@@ -5,9 +5,9 @@ import (
 	"encoding/binary"
 	"testing"
 
-	"github.com/MatusOllah/resona/afmt"
-	"github.com/MatusOllah/resona/encoding/pcm"
-	"github.com/MatusOllah/resona/internal/testutil"
+	"github.com/SladkyCitron/resona/afmt"
+	"github.com/SladkyCitron/resona/encoding/pcm"
+	"github.com/SladkyCitron/resona/internal/testutil"
 )
 
 func TestPCMRoundTrip(t *testing.T) {

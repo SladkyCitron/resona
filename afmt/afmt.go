@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/MatusOllah/resona/freq"
+	"github.com/SladkyCitron/resona/freq"
 )
 
 // NumFramesToDuration returns the duration of n frames based on the sample rate.

@@ -4,8 +4,8 @@ import (
 	"math"
 	"testing"
 
-	"github.com/MatusOllah/resona/dsp/lutmath"
-	"github.com/MatusOllah/resona/internal/testutil"
+	"github.com/SladkyCitron/resona/dsp/lutmath"
+	"github.com/SladkyCitron/resona/internal/testutil"
 )
 
 const testTolerance = 1e-3

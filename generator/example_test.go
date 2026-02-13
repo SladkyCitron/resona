@@ -3,8 +3,8 @@ package generator_test
 import (
 	"fmt"
 
-	"github.com/MatusOllah/resona/freq"
-	"github.com/MatusOllah/resona/generator"
+	"github.com/SladkyCitron/resona/freq"
+	"github.com/SladkyCitron/resona/generator"
 )
 
 func ExampleConstant() {

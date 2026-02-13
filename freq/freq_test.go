@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MatusOllah/resona/freq"
+	"github.com/SladkyCitron/resona/freq"
 )
 
 func TestFrequency_String(t *testing.T) {

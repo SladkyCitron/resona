@@ -6,8 +6,8 @@ import (
 	"io"
 	"time"
 
-	"github.com/MatusOllah/resona/afmt"
-	"github.com/MatusOllah/resona/freq"
+	"github.com/SladkyCitron/resona/afmt"
+	"github.com/SladkyCitron/resona/freq"
 )
 
 // Interleave takes a channel-separated audio sample slice, where each channel is a slice of samples,

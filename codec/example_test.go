@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/MatusOllah/resona/codec"
-	_ "github.com/MatusOllah/resona/codec/flac" // Enable FLAC decoder
+	"github.com/SladkyCitron/resona/codec"
+	_ "github.com/SladkyCitron/resona/codec/flac" // Enable FLAC decoder
 )
 
 func Example() {

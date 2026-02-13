@@ -18,10 +18,10 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/MatusOllah/resona/codec/mp3/internal/bits"
-	"github.com/MatusOllah/resona/codec/mp3/internal/consts"
-	"github.com/MatusOllah/resona/codec/mp3/internal/frameheader"
-	"github.com/MatusOllah/resona/codec/mp3/internal/sideinfo"
+	"github.com/SladkyCitron/resona/codec/mp3/internal/bits"
+	"github.com/SladkyCitron/resona/codec/mp3/internal/consts"
+	"github.com/SladkyCitron/resona/codec/mp3/internal/frameheader"
+	"github.com/SladkyCitron/resona/codec/mp3/internal/sideinfo"
 )
 
 type FullReader interface {

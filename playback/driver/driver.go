@@ -4,8 +4,8 @@ package driver
 import (
 	"io"
 
-	"github.com/MatusOllah/resona/afmt"
-	"github.com/MatusOllah/resona/aio"
+	"github.com/SladkyCitron/resona/afmt"
+	"github.com/SladkyCitron/resona/aio"
 )
 
 // Driver is the interface that playback drivers must implement.

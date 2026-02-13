@@ -3,8 +3,8 @@ package generator_test
 import (
 	"testing"
 
-	"github.com/MatusOllah/resona/generator"
-	"github.com/MatusOllah/resona/internal/testutil"
+	"github.com/SladkyCitron/resona/generator"
+	"github.com/SladkyCitron/resona/internal/testutil"
 )
 
 func TestConstant(t *testing.T) {

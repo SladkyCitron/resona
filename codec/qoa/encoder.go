@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/MatusOllah/resona/afmt"
+	"github.com/SladkyCitron/resona/afmt"
 )
 
 // Encoder represents the encoder for the QOA file format.

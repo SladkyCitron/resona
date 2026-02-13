@@ -3,8 +3,8 @@ package generator
 import (
 	"math"
 
-	"github.com/MatusOllah/resona/dsp/lutmath"
-	"github.com/MatusOllah/resona/freq"
+	"github.com/SladkyCitron/resona/dsp/lutmath"
+	"github.com/SladkyCitron/resona/freq"
 )
 
 const tau = 2 * math.Pi

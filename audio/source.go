@@ -5,9 +5,9 @@ import (
 	"math"
 	"time"
 
-	"github.com/MatusOllah/resona/afmt"
-	"github.com/MatusOllah/resona/aio"
-	"github.com/MatusOllah/resona/effect"
+	"github.com/SladkyCitron/resona/afmt"
+	"github.com/SladkyCitron/resona/aio"
+	"github.com/SladkyCitron/resona/effect"
 )
 
 // Source represents a controllable audio stream.

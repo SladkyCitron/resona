@@ -3,8 +3,8 @@ package filter
 import (
 	"math"
 
-	"github.com/MatusOllah/resona/dsp/window"
-	"github.com/MatusOllah/resona/freq"
+	"github.com/SladkyCitron/resona/dsp/window"
+	"github.com/SladkyCitron/resona/freq"
 )
 
 // FIR represents a FIR (Finite Impulse Response) filter.
