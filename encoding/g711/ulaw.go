@@ -67,8 +67,8 @@ func (d *ulawDecoder) ReadSamples(p []float32) (int, error) {
 		return 0, err
 	}
 
-	f64buf := DecodeUlaw(d.buf[:n])
-	copy(p, f64buf)
+	f32buf := DecodeUlaw(d.buf[:n])
+	copy(p, f32buf)
 
 	return n, err
 }
