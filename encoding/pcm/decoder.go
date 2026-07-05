@@ -13,7 +13,7 @@ import (
 type decoder struct {
 	r            io.Reader
 	sampleFormat afmt.SampleFormat
-	pcmBuf       []byte
+	buf          []byte
 }
 
 // NewDecoder returns an aio.SampleReader that reads and decodes PCM samples from the provided [io.Reader].
@@ -36,106 +36,103 @@ func (d *decoder) ReadSamples(p []float32) (int, error) {
 		return 0, ErrInvalidSampleEncoding
 	}
 
-	samplesRead := 0
-	for samplesRead < len(p) {
-		sampleSize := d.sampleFormat.BytesPerSample()
-		numBytes := sampleSize * (len(p) - samplesRead)
+	sampleSize := d.sampleFormat.BytesPerSample()
 
-		if cap(d.pcmBuf) < numBytes {
-			d.pcmBuf = make([]byte, numBytes)
-		} else {
-			d.pcmBuf = d.pcmBuf[:numBytes]
-		}
+	numSamples := len(p)
+	numBytes := numSamples * sampleSize
+	if cap(d.buf) < numBytes {
+		d.buf = make([]byte, numBytes)
+	} else {
+		d.buf = d.buf[:numBytes]
+	}
+	n, err := io.ReadFull(d.r, d.buf)
+	switch err {
+	case nil:
+		// do nothing
+	case io.ErrUnexpectedEOF:
+		// decode the bytes that were read
+	case io.EOF:
+		return 0, io.EOF
+	default:
+		return 0, err
+	}
 
-		n, err := d.r.Read(d.pcmBuf)
-		if n == 0 {
-			if err == nil {
-				continue
-			}
-			return samplesRead, err
-		}
-
-		for i := range n / sampleSize {
-			offset := i * sampleSize
-			if offset+sampleSize > len(d.pcmBuf) {
-				return i, io.ErrUnexpectedEOF
-			}
-
-			switch d.sampleFormat.Encoding {
-			case afmt.SampleEncodingInt:
-				switch d.sampleFormat.BitDepth {
-				case 8:
-					v := d.pcmBuf[offset]
-					p[i] = float32(int8(v)) / (1<<7 - 1)
-				case 16:
-					v := int16(d.sampleFormat.Endian.Uint16(d.pcmBuf[offset:]))
-					p[i] = float32(v) / (1<<15 - 1)
-				case 24:
-					b := d.pcmBuf[offset : offset+3]
-					v := int32(uint24(b, d.sampleFormat.Endian))
-					if v&(1<<23) != 0 {
-						v |= ^0xFFFFFF
-					}
-					p[i] = float32(v) / (1<<23 - 1)
-				case 32:
-					v := int32(d.sampleFormat.Endian.Uint32(d.pcmBuf[offset:]))
-					p[i] = float32(v) / (1<<31 - 1)
-					/*
-						case 64:
-							v := int64(d.sampleFormat.Endian.Uint64(d.pcmBuf[offset:]))
-							p[i] = float32(v) / (1<<63 - 1)
-					*/
-				default:
-					return 0, ErrInvalidBitDepth
+	for i := range p[:n/sampleSize] {
+		offset := i * sampleSize
+		switch d.sampleFormat.Encoding {
+		case afmt.SampleEncodingInt:
+			switch d.sampleFormat.BitDepth {
+			case 8:
+				v := d.buf[offset]
+				p[i] = float32(int8(v)) / (1<<7 - 1)
+			case 16:
+				v := int16(d.sampleFormat.Endian.Uint16(d.buf[offset:]))
+				p[i] = float32(v) / (1<<15 - 1)
+			case 24:
+				b := d.buf[offset : offset+3]
+				v := int32(uint24(b, d.sampleFormat.Endian))
+				if v&(1<<23) != 0 {
+					v |= ^0xFFFFFF
 				}
-			case afmt.SampleEncodingUint:
-				switch d.sampleFormat.BitDepth {
-				case 8:
-					v := d.pcmBuf[offset]
-					p[i] = float32(v)/127.5 - 1.0
-					/*
-						case 16:
-							v := d.sampleFormat.Endian.Uint16(d.pcmBuf[offset:])
-							p[i] = float32(v) / (1<<16 - 1)
-						case 24:
-							if offset+3 > len(d.pcmBuf) {
-								return i, io.ErrUnexpectedEOF
-							}
-							b := d.pcmBuf[offset : offset+3]
-							v := uint24(b, d.sampleFormat.Endian)
-							p[i] = float32(v) / (1<<24 - 1)
-						case 32:
-							v := d.sampleFormat.Endian.Uint32(d.pcmBuf[offset:])
-							p[i] = float32(v) / (1<<32 - 1)
-						case 64:
-							v := d.sampleFormat.Endian.Uint64(d.pcmBuf[offset:])
-							p[i] = float32(v) / (1<<64 - 1)
-					*/
-				default:
-					return 0, ErrInvalidBitDepth
-				}
-			case afmt.SampleEncodingFloat:
-				switch d.sampleFormat.BitDepth {
-				case 32:
-					bits := d.sampleFormat.Endian.Uint32(d.pcmBuf[offset:])
-					p[i] = math.Float32frombits(bits)
-				case 64:
-					bits := d.sampleFormat.Endian.Uint64(d.pcmBuf[offset:])
-					p[i] = float32(math.Float64frombits(bits))
-				default:
-					return 0, ErrInvalidBitDepth
-				}
+				p[i] = float32(v) / (1<<23 - 1)
+			case 32:
+				v := int32(d.sampleFormat.Endian.Uint32(d.buf[offset:]))
+				p[i] = float32(v) / (1<<31 - 1)
+				/*
+					case 64:
+						v := int64(d.sampleFormat.Endian.Uint64(d.buf[offset:]))
+						p[i] = float32(v) / (1<<63 - 1)
+				*/
 			default:
-				return 0, ErrInvalidSampleEncoding
+				return 0, ErrInvalidBitDepth
 			}
-		}
-
-		samplesRead += n / sampleSize
-		if err != nil {
-			return samplesRead, err
+		case afmt.SampleEncodingUint:
+			switch d.sampleFormat.BitDepth {
+			case 8:
+				v := d.buf[offset]
+				p[i] = float32(v)/127.5 - 1.0
+				/*
+					case 16:
+						v := d.sampleFormat.Endian.Uint16(d.buf[offset:])
+						p[i] = float32(v) / (1<<16 - 1)
+					case 24:
+						if offset+3 > len(d.buf) {
+							return i, io.ErrUnexpectedEOF
+						}
+						b := d.buf[offset : offset+3]
+						v := uint24(b, d.sampleFormat.Endian)
+						p[i] = float32(v) / (1<<24 - 1)
+					case 32:
+						v := d.sampleFormat.Endian.Uint32(d.buf[offset:])
+						p[i] = float32(v) / (1<<32 - 1)
+					case 64:
+						v := d.sampleFormat.Endian.Uint64(d.buf[offset:])
+						p[i] = float32(v) / (1<<64 - 1)
+				*/
+			default:
+				return 0, ErrInvalidBitDepth
+			}
+		case afmt.SampleEncodingFloat:
+			switch d.sampleFormat.BitDepth {
+			case 32:
+				bits := d.sampleFormat.Endian.Uint32(d.buf[offset:])
+				p[i] = math.Float32frombits(bits)
+			case 64:
+				bits := d.sampleFormat.Endian.Uint64(d.buf[offset:])
+				p[i] = float32(math.Float64frombits(bits))
+			default:
+				return 0, ErrInvalidBitDepth
+			}
+		default:
+			return 0, ErrInvalidSampleEncoding
 		}
 	}
-	return samplesRead, nil
+
+	samplesRead := n / sampleSize
+	if samplesRead > 0 {
+		return samplesRead, nil
+	}
+	return 0, io.EOF
 }
 
 func uint24(p []byte, endian binary.ByteOrder) uint32 {
