@@ -41,12 +41,13 @@ func main() {
 
 	format := dec.Format()
 	fmt.Fprintf(os.Stderr, "Format: %s, %v, %d channels\n", name, format.SampleRate, format.NumChannels)
+	fmt.Fprintf(os.Stderr, "Sample format: %v\n", dec.SampleFormat())
 
 	if bitrater, ok := dec.(codec.Bitrater); ok {
 		fmt.Fprintf(os.Stderr, "Bitrate: %d kbps\n", bitrater.Bitrate()/1000)
 	}
 
-	ctx, err := playback.NewContext(format, playback.WithDriver("oto"))
+	ctx, err := playback.NewContext(format)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error creating playback context: %v\n", err)
 		os.Exit(1)
