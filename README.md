@@ -35,6 +35,6 @@ All documentation is available at [pkg.go.dev/github.com/SladkyCitron/resona](ht
 
 ## ⚖️ License
 
-Copyright © 2025 Matúš Ollah
+Copyright © 2025 SladkyCitron
 
 Licensed under the **MIT License** (see [LICENSE](LICENSE)) - free to use, fork, remix, and share!
