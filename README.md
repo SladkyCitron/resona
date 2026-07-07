@@ -1,6 +1,6 @@
 # 🔊 Resona
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/SladkyCitron/resona.svg)](https://pkg.go.dev/github.com/SladkyCitron/resona) [![CI (Go)](https://github.com/SladkyCitron/resona/actions/workflows/ci.yml/badge.svg)](https://github.com/SladkyCitron/resona/actions/workflows/ci.yml) [![Go Report Card](https://goreportcard.com/badge/github.com/SladkyCitron/resona)](https://goreportcard.com/report/github.com/SladkyCitron/resona) [![GitHub license](https://img.shields.io/github/license/SladkyCitron/resona)](LICENSE) [![Made in Slovakia](https://raw.githubusercontent.com/pedromxavier/flag-badges/refs/heads/main/badges/SK.svg)](https://www.youtube.com/watch?v=UqXJ0ktrmh0)
+[![Go Reference](https://pkg.go.dev/badge/github.com/SladkyCitron/resona.svg)](https://pkg.go.dev/github.com/SladkyCitron/resona) [![CI (Go)](https://github.com/SladkyCitron/resona/actions/workflows/ci.yml/badge.svg)](https://github.com/SladkyCitron/resona/actions/workflows/ci.yml) [![Go Report Card](https://goreportcard.com/badge/github.com/SladkyCitron/resona)](https://goreportcard.com/report/github.com/SladkyCitron/resona) [![GitHub license](https://img.shields.io/github/license/SladkyCitron/resona)](LICENSE) ![Made in Slovakia](https://raw.githubusercontent.com/pedromxavier/flag-badges/refs/heads/main/badges/SK.svg)
 
 **Resona** is the friendly, fast, and flexible audio and DSP toolkit for Go.
 Whether you're building a synth, sequencer, effect, player, or a full-on singing voice synthesizer, Resona provides the tools you need, without getting in your way.
