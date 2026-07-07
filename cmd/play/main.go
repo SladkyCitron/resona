@@ -11,6 +11,7 @@ import (
 	_ "github.com/SladkyCitron/resona/codec/au"
 	_ "github.com/SladkyCitron/resona/codec/avr"
 	_ "github.com/SladkyCitron/resona/codec/flac"
+	_ "github.com/SladkyCitron/resona/codec/mp3"
 	_ "github.com/SladkyCitron/resona/codec/oggvorbis"
 	_ "github.com/SladkyCitron/resona/codec/qoa"
 	_ "github.com/SladkyCitron/resona/codec/svx"
