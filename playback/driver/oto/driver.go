@@ -7,39 +7,38 @@
 package oto
 
 import (
-	"encoding/binary"
-	"math"
-
 	"github.com/SladkyCitron/resona/afmt"
-	"github.com/SladkyCitron/resona/aio"
-	"github.com/SladkyCitron/resona/dsp"
 	"github.com/SladkyCitron/resona/playback"
+	"github.com/SladkyCitron/resona/playback/driver"
 	"github.com/ebitengine/oto/v3"
 )
 
+var _ driver.Driver = (*Driver)(nil)
+
 // Driver represents the driver.
 type Driver struct {
-	ctx    *oto.Context
-	player *oto.Player
+	ctx *oto.Context
 }
 
 // Init initializes the driver based on the format and source.
 // It blocks until the driver is ready.
-func (d *Driver) Init(format afmt.Format, src aio.SampleReader) error {
-	ctx, ready, err := oto.NewContext(&oto.NewContextOptions{
+func (d *Driver) Init(format afmt.Format, bufferSize int) error {
+	op := &oto.NewContextOptions{
 		SampleRate:   int(format.SampleRate.Hertz()),
 		ChannelCount: format.NumChannels,
 		Format:       oto.FormatFloat32LE,
-	})
+	}
+	if bufferSize != 0 {
+		op.BufferSize = afmt.NumFramesToDuration(format.SampleRate, bufferSize)
+	}
+
+	ctx, ready, err := oto.NewContext(op)
 	if err != nil {
 		return err
 	}
 	<-ready
 
 	d.ctx = ctx
-
-	d.player = ctx.NewPlayer(&pcmReader{src: src})
-	d.player.Play()
 	return nil
 }
 
@@ -52,38 +51,7 @@ func (d *Driver) Init(format afmt.Format, src aio.SampleReader) error {
 //
 // [Oto issue #149]: https://github.com/ebitengine/oto/issues/149
 func (d *Driver) Close() error {
-	if err := d.player.Close(); err != nil {
-		return err
-	}
 	return d.ctx.Suspend()
-}
-
-// pcmReader is an [io.Reader] that wraps aio.SampleReader and encodes audio to float32 little endian PCM.
-type pcmReader struct {
-	src aio.SampleReader
-	buf []float32
-}
-
-func (r *pcmReader) Read(p []byte) (int, error) {
-	const sampleSize = 4 // float32 size = 4 bytes
-
-	numSamples := len(p) / sampleSize
-
-	if cap(r.buf) < numSamples {
-		r.buf = make([]float32, numSamples)
-	} else {
-		r.buf = r.buf[:numSamples]
-	}
-	clear(r.buf)
-
-	n, err := r.src.ReadSamples(r.buf)
-	if err != nil && n == 0 {
-		return 0, err
-	}
-	for i := range r.buf[:n] {
-		binary.LittleEndian.PutUint32(p[i*sampleSize:], math.Float32bits(dsp.Clamp(r.buf[i])))
-	}
-	return n * sampleSize, err
 }
 
 func init() {

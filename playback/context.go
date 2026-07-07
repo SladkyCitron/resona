@@ -3,9 +3,7 @@ package playback
 import (
 	"fmt"
 
-	"github.com/SladkyCitron/resona/abufio"
 	"github.com/SladkyCitron/resona/afmt"
-	"github.com/SladkyCitron/resona/audio"
 	"github.com/SladkyCitron/resona/playback/driver"
 )
 
@@ -42,24 +40,17 @@ type Context struct {
 	driverName string
 	drv        driver.Driver
 	bufferSize int
-	mux        *audio.Mixer
 }
 
 // NewContext creates a new [Context] with the specified format and options.
 // If no driver is specified, the default driver (first one registered) is used.
 func NewContext(format afmt.Format, opts ...ContextOption) (*Context, error) {
-	ctx := &Context{
-		driverName: "",   // Empty string = default driver
-		bufferSize: 1024, // Default buffer size
-		mux:        audio.NewMixer(nil),
-	}
+	ctx := &Context{}
 
 	// Apply options
 	for _, opt := range opts {
 		opt(ctx)
 	}
-
-	ctx.mux.KeepAlive(true)
 
 	if ctx.driverName == "" {
 		// Use default driver
@@ -79,7 +70,7 @@ func NewContext(format afmt.Format, opts ...ContextOption) (*Context, error) {
 	}
 
 	// Init driver
-	if err := ctx.drv.Init(format, abufio.NewReaderSize(ctx.mux, ctx.bufferSize)); err != nil {
+	if err := ctx.drv.Init(format, ctx.bufferSize); err != nil {
 		return nil, fmt.Errorf("playback: failed to initialize driver %q: %w", ctx.driverName, err)
 	}
 
@@ -88,6 +79,5 @@ func NewContext(format afmt.Format, opts ...ContextOption) (*Context, error) {
 
 // Close closes the underlying playback driver and the context.
 func (ctx *Context) Close() error {
-	ctx.mux.Clear()
 	return ctx.drv.Close()
 }
