@@ -2,31 +2,30 @@ name: CI (Go)
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-    - name: Set up Go
-      uses: actions/setup-go@v5
-      with:
-        go-version-file: "go.mod"
-    
-    - name: Install dependencies
-      run: |
-        sudo apt update
-        sudo apt install gcc libsoxr-dev libasound2-dev libsamplerate-dev pkg-config -y
+      - name: Set up Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: "go.mod"
 
-        go mod tidy
-        go mod download
-    
-    - name: Run golangci-lint
-      uses: golangci/golangci-lint-action@v8
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install gcc libsoxr-dev libasound2-dev libsamplerate-dev pkg-config -y
 
-    - name: Run tests
-      run: go test -v ./...
+          go mod download
+
+      - name: Run golangci-lint
+        uses: golangci/golangci-lint-action@v9
+
+      - name: Run tests
+        run: go test -v ./...
