@@ -43,6 +43,10 @@ func (p *player) PlayWithDone() chan struct{} {
 	return done
 }
 
+func (p *player) Stop() {
+	p.p.PauseAndStopReading()
+}
+
 // pcmReader is an [io.Reader] that wraps aio.SampleReader and encodes audio to float32 little endian PCM.
 type pcmReader struct {
 	src aio.SampleReader

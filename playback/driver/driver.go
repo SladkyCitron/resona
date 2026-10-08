@@ -25,4 +25,7 @@ type Player interface {
 
 	// PlayWithDone starts the playback and returns a channel that closes when the player has finished playing and drained.
 	PlayWithDone() chan struct{}
+
+	// Stop stops playback.
+	Stop()
 }
